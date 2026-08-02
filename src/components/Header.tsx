@@ -12,7 +12,11 @@ const NAV_ITEMS = [
 
 const SECTION_IDS = NAV_ITEMS.map((n) => n.id);
 
-export default function Header() {
+type Props = {
+  onNavClick?: (sectionId: string) => void;
+};
+
+export default function Header({ onNavClick }: Props) {
   const scrolled = useScrolled(12);
   const { active, setActive } = useActiveSection(SECTION_IDS);
   const [open, setOpen] = useState(false);
@@ -53,7 +57,14 @@ export default function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              onClick={() => setActive(item.id)}
+              onClick={(e) => {
+                if (onNavClick) {
+                  e.preventDefault();
+                  onNavClick(item.id);
+                  return;
+                }
+                setActive(item.id);
+              }}
               className={`group relative text-sm font-medium transition-colors duration-200 ease-out-quint ${
                 active === item.id
                   ? 'text-accent'
@@ -92,7 +103,12 @@ export default function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              onClick={() => {
+              onClick={(e) => {
+                if (onNavClick) {
+                  e.preventDefault();
+                  onNavClick(item.id);
+                  return;
+                }
                 setActive(item.id);
                 setOpen(false);
               }}

@@ -1,5 +1,7 @@
 import { Mail, Linkedin, FileText, MapPin } from 'lucide-react';
 
+const RESUME_URL = 'https://drive.google.com/file/d/1jdy10Nl09linBK_Nd5Gd0uDyBxCFcGDB/view?usp=sharing';
+
 const INFO = [
   {
     label: 'EMAIL',
@@ -34,7 +36,7 @@ const ACTIONS = [
   },
   {
     label: 'Resume',
-    href: '#',
+    href: RESUME_URL,
     icon: FileText,
   },
 ];

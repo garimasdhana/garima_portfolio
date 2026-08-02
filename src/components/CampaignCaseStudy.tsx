@@ -33,12 +33,12 @@ export default function CampaignCaseStudy({ slug, onBack, onOpen }: Props) {
 
   return (
     <div className="animate-fade-in">
-      {/* Top bar — sits below the fixed header */}
-      <div className="border-b border-line pt-[72px]">
-        <div className="section-shell flex items-center justify-between py-6">
+      {/* Sticky Back button — sits below the fixed header */}
+      <div className="sticky top-[72px] z-40">
+        <div className="section-shell py-3">
           <button
             onClick={onBack}
-            className="group inline-flex items-center gap-2 text-sm font-medium text-ink/60 transition-colors duration-200 ease-out-quint hover:text-accent active:scale-[0.98]"
+            className="group inline-flex items-center gap-2 rounded-full border border-line/70 bg-white/70 px-4 py-2 text-sm font-medium text-ink/60 backdrop-blur-md transition-all duration-200 ease-spring-soft hover:border-accent/40 hover:bg-white/90 hover:text-accent active:scale-[0.98]"
           >
             <ArrowLeft
               size={16}
@@ -46,9 +46,6 @@ export default function CampaignCaseStudy({ slug, onBack, onOpen }: Props) {
             />
             Back
           </button>
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-ink/40">
-            Case Study
-          </span>
         </div>
       </div>
 

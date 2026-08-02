@@ -1,5 +1,7 @@
 import { ArrowDown, ArrowUpRight, FileText } from 'lucide-react';
 
+const RESUME_URL = 'https://drive.google.com/file/d/1jdy10Nl09linBK_Nd5Gd0uDyBxCFcGDB/view?usp=sharing';
+
 export default function Hero() {
   return (
     <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-[72px]">
@@ -34,11 +36,13 @@ export default function Hero() {
                 />
               </a>
               <a
-                href="#"
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl2 border border-line px-7 py-3.5 text-sm font-medium text-ink transition-all duration-200 ease-spring-soft hover:border-ink/20 hover:bg-surface hover:shadow-soft hover:-translate-y-0.5 active:scale-[0.97] active:translate-y-0"
               >
                 <FileText size={16} strokeWidth={1.75} />
-                Download CV
+                Download Resume
               </a>
             </div>
           </div>

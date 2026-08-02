@@ -26,15 +26,26 @@ export default function App() {
     }, 200);
   };
 
-  const closeCampaign = () => {
+  const closeCampaign = (scrollTarget?: string) => {
     setTransitioning(true);
     setTimeout(() => {
       setActiveCampaign(null);
       setTransitioning(false);
       requestAnimationFrame(() => {
+        if (scrollTarget) {
+          const el = document.getElementById(scrollTarget);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+          }
+        }
         window.scrollTo({ top: scrollRef.current, behavior: 'auto' });
       });
     }, 200);
+  };
+
+  const navigateFromCaseStudy = (sectionId: string) => {
+    closeCampaign(sectionId);
   };
 
   useEffect(() => {
@@ -74,7 +85,7 @@ export default function App() {
         transitioning ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      <Header />
+      <Header onNavClick={activeCampaign ? navigateFromCaseStudy : undefined} />
       {pageContent}
       <Footer />
     </div>
