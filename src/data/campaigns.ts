@@ -9,6 +9,7 @@ export type GalleryItem = {
   kind?: 'image' | 'video';
   src?: string;
   video?: string;
+  contain?: boolean;
 };
 
 export type Campaign = {
@@ -33,18 +34,18 @@ export type Campaign = {
 };
 
 const DEFAULT_LABELS: Record<string, GalleryItem[]> = {
-  // TripIQ: 2 Reel Covers, 4 Instagram Posts, 1 Travel Itinerary, 3 Insights
+  // TripIQ: 3 Reel Covers, 4 Instagram Posts, 3 Insights
   tripiq: [
-    { label: 'Reel Cover 01', aspect: 'portrait', kind: 'image' },
-    { label: 'Reel Cover 02', aspect: 'portrait', kind: 'image' },
-    { label: 'Instagram Post 01', aspect: 'square', kind: 'image' },
-    { label: 'Instagram Post 02', aspect: 'square', kind: 'image' },
-    { label: 'Instagram Post 03', aspect: 'square', kind: 'image' },
-    { label: 'Instagram Post 04', aspect: 'square', kind: 'image' },
-    { label: 'Travel Itinerary', aspect: 'landscape', kind: 'image' },
-    { label: 'Insights Screenshot 01', aspect: 'square', kind: 'image' },
-    { label: 'Insights Screenshot 02', aspect: 'square', kind: 'image' },
-    { label: 'Insights Screenshot 03', aspect: 'square', kind: 'image' },
+    { label: 'Reel Cover 01', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/reel-covers/TripIQ%20reel%20Cover%201.png' },
+    { label: 'Reel Cover 02', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/reel-covers/TripIQ%20reel%20Cover%202.png' },
+    { label: 'Reel Cover 03', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/reel-covers/TripIQ%20reel%20Cover%204.png' },
+    { label: 'Instagram Post 01', aspect: 'square', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/posts/TripIQ%20Post%201.png' },
+    { label: 'Instagram Post 02', aspect: 'square', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/posts/TripIQ%20Post%202.png' },
+    { label: 'Instagram Post 03', aspect: 'square', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/posts/TripIQ%20Post%203.png' },
+    { label: 'Instagram Post 04', aspect: 'square', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/posts/TripIQ%20Post%204.png' },
+    { label: 'Insights Screenshot 01', aspect: 'square', kind: 'image', contain: true, src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/insights/TripIQ%20Insight1.PNG' },
+    { label: 'Insights Screenshot 02', aspect: 'square', kind: 'image', contain: true, src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/insights/TripIQ%20Insight2.PNG' },
+    { label: 'Insights Screenshot 03', aspect: 'square', kind: 'image', contain: true, src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/tripiq/insights/TripIQ%20Insight3.PNG' },
   ],
   // Noida Vibes: 3 Videos, 3 Creatives
   'noida-vibes': [
@@ -55,16 +56,16 @@ const DEFAULT_LABELS: Record<string, GalleryItem[]> = {
     { label: 'Creative 02', aspect: 'square', kind: 'image' },
     { label: 'Creative 03', aspect: 'square', kind: 'image' },
   ],
-  // AS Marketing: 4 Videos, 3 Creatives, 1 Presentation
+  // AS Marketing: 4 Reel Covers, 4 Instagram Reels
   'as-marketing': [
-    { label: 'Video 01', aspect: 'landscape', kind: 'video' },
-    { label: 'Video 02', aspect: 'portrait', kind: 'video' },
-    { label: 'Video 03', aspect: 'portrait', kind: 'video' },
-    { label: 'Video 04', aspect: 'landscape', kind: 'video' },
-    { label: 'Creative 01', aspect: 'portrait', kind: 'image' },
-    { label: 'Creative 02', aspect: 'landscape', kind: 'image' },
-    { label: 'Creative 03', aspect: 'portrait', kind: 'image' },
-    { label: 'Presentation Design', aspect: 'landscape', kind: 'image' },
+    { label: 'Reel Cover 01', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/as-marketing/creatives/as-marketing%20reel%20cover%204.png' },
+    { label: 'Reel Cover 02', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/as-marketing/creatives/as-marketing%20reel%20cover%207.png' },
+    { label: 'Reel Cover 03', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/as-marketing/creatives/as-marketing%20reel%20cover%205.png' },
+    { label: 'Reel Cover 04', aspect: 'portrait', kind: 'image', src: 'https://raw.githubusercontent.com/garimasdhana/garima-portfolio-assets/refs/heads/main/as-marketing/creatives/as-marketing%20reel%20cover%208.png' },
+    { label: 'Instagram Reel 01', aspect: 'portrait', kind: 'video', video: 'https://drive.google.com/uc?export=download&id=1JY_nTPwAqvu8M9o0kfvpd51M-nFBoGlY' },
+    { label: 'Instagram Reel 02', aspect: 'portrait', kind: 'video', video: 'https://drive.google.com/uc?export=download&id=1o3us4MH1A7Q_718GvOfVAMrHvPCAlXY4' },
+    { label: 'Instagram Reel 03', aspect: 'portrait', kind: 'video', video: 'https://drive.google.com/uc?export=download&id=1o3us4MH1A7Q_718GvOfVAMrHvPCAlXY4' },
+    { label: 'Instagram Reel 04', aspect: 'portrait', kind: 'video', video: 'https://drive.google.com/uc?export=download&id=1W5PKd6ehwdg3_Idb6_xV1DCF0nzGWtq5' },
   ],
   // Freelance: 6 Videos
   freelance: [

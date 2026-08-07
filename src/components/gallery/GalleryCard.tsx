@@ -43,7 +43,7 @@ export default function GalleryCard({ item, onOpen, className = '' }: Props) {
           alt={item.label}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover transition-transform duration-300 ease-spring-soft group-hover:scale-[1.04]"
+          className={`h-full w-full transition-transform duration-300 ease-spring-soft group-hover:scale-[1.04] ${item.contain ? 'object-contain' : 'object-cover'}`}
         />
       ) : isVideo && item.video ? (
         <>
